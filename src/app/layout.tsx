@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Gochi_Hand } from 'next/font/google'
 import './globals.css'
+import { TodoProvider } from '@/store/todos'
 
-const inter = Inter({ subsets: ['latin'] })
+const gochi_hand = Gochi_Hand({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={gochi_hand.className}>
+        <TodoProvider>
+        {children}
+        </TodoProvider>
+        </body>
     </html>
   )
 }
